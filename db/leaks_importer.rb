@@ -3,7 +3,7 @@ require 'american_date'
 require 'csv'
 
 data = File.read("/Users/danb/Downloads/cables.csv", 100 * 1024 *1024)
-Leak.delete_all
+Cable.delete_all
 i = 1
 
 while data.sub!(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?)\n("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d.*?")/m, '\2')
@@ -18,7 +18,7 @@ while data.sub!(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?)\n("\d+","\d{
     puts origin_id
     i += 1
 
-    Leak.create(
+    Cable.create(
       cable_date:         DateTime.parse(cable_date),
       origin_id:          origin_id,
       origin_description: origin_description,

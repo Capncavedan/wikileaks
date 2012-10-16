@@ -1,0 +1,27 @@
+%h1 Cable!
+
+%hr
+
+%h3
+  ID: 
+  = @cable.origin_id
+
+%h4= @cable.cable_date.to_s
+
+%h4
+  Origin:
+  = @cable.origin_description
+
+%h4= @cable.destination_id
+
+%hr
+
+%span.text
+  = simple_format @cable.header
+
+%hr
+
+%span.text
+  = simple_format @cable.body
+
+%hr

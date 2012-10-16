@@ -1,4 +1,4 @@
-class Leak < ActiveRecord::Base
+class Cable < ActiveRecord::Base
 
   attr_accessible :cable_date, :origin_id, :origin_description, :classification, :destination_id, :header, :body
 

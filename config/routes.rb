@@ -1,7 +1,7 @@
 Wikileaks::Application.routes.draw do
 
-  resources :leaks, only: [:index, :show]
+  resources :cables, only: [:index, :show]
 
-  root :to => 'leaks#index'
+  root :to => 'cables#index'
 
 end

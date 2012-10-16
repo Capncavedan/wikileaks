@@ -1,25 +1,26 @@
-class LeaksController < ApplicationController
+class CablesController < ApplicationController
 
   def index
-    @hits = search_leaks
+    @hits = search_cables
   end
 
   def show
-    @leak = Leak.find(params[:id])
+    @cable = Cable.find(params[:id])
   end
 
   private
 
-  def search_leaks
+  def search_cables
     return [] if params[:q].blank?
 
-    hits = Leak.search do
+    hits = Cable.search do
       fulltext params[:q]
 
       with :origin_description, params[:origin] if params[:origin].present?
 
       with :cable_year, params[:year] if params[:year].present?
     end.hits
+    
     hits.reject{ |hit| hit.result.nil? }
   end
 
