@@ -20,3 +20,5 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 
 gem 'american_date'
+
+gem 'mysql2'
