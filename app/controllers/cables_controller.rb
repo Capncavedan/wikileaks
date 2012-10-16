@@ -13,16 +13,15 @@ class CablesController < ApplicationController
   def search_cables
     return [] if params[:q].blank?
 
-    hits = Cable.search do
+    search = Cable.search do
       fulltext params[:q]
 
       with :origin_description, params[:origin] if params[:origin].present?
 
       with :cable_year, params[:year] if params[:year].present?
-    end.hits
+    end
     
-    hits.reject{ |hit| hit.result.nil? }
+    search.hits.reject{ |hit| hit.result.nil? }
   end
-
 
 end
