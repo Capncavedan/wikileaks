@@ -1,3 +1,27 @@
 %h1 Leak!
 
-%h3 Show It!
+%hr
+
+%h3
+  ID: 
+  = @leak.origin_id
+
+%h4= @leak.cable_date.to_s
+
+%h4
+  Origin:
+  = @leak.origin_description
+
+%h4= @leak.destination_id
+
+%hr
+
+%span.text
+  = simple_format @leak.header
+
+%hr
+
+%span.text
+  = simple_format @leak.body
+
+%hr

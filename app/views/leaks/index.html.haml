@@ -7,7 +7,9 @@
 
 %br
 %br
-- if @hits.empty?
+- if params[:q].blank?
+  - # show nothing
+- elsif @hits.empty?
   %div.hit.header
     %span.no_results No Matches
 - else
@@ -22,4 +24,4 @@
       %span.score= sprintf("%.2f", hit.score)
       %span.date= hit.result.cable_date.strftime("%d %b %Y")
       %span.origin= hit.result.origin_description
-      %span.origin_id= hit.result.origin_id
+      %span.origin_id= link_to(hit.result.origin_id, hit.result)

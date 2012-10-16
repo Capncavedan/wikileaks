@@ -2,7 +2,7 @@ require 'rubygems'
 require 'american_date'
 require 'csv'
 
-data = File.read("/Users/danb/Downloads/cables.csv", 1 * 1024 *1024)
+data = File.read("/Users/danb/Downloads/cables.csv", 100 * 1024 *1024)
 Leak.delete_all
 i = 1
 
@@ -28,5 +28,7 @@ while data.sub!(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?)\n("\d+","\d{
       body:               body)
   end
 end
+
+Sunspot.commit
 
 puts "Processed #{i} cables"

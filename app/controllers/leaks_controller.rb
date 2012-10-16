@@ -5,6 +5,7 @@ class LeaksController < ApplicationController
   end
 
   def show
+    @leak = Leak.find(params[:id])
   end
 
   private
@@ -12,9 +13,10 @@ class LeaksController < ApplicationController
   def search_leaks
     return [] if params[:q].blank?
 
-    Leak.search do
+    hits = Leak.search do
       fulltext params[:q]
     end.hits
+    hits.reject{ |hit| hit.result.nil? }
   end
 
 

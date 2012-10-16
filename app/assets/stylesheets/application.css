@@ -17,6 +17,8 @@
   text-align: center;
 }
 
+a, a:hover, a:visited, a:active { color: black; text-decoration: none; }
+
 #content {
   width: 60%;
   margin-left: 20%;
@@ -29,6 +31,8 @@
 h1 { font-size: 3em; }
 
 h3 { font-size: 2em; }
+
+h4 { font-size: 1.5em; }
 
 form input {
   font-size: 1.5em;
@@ -45,3 +49,7 @@ DIV.hit SPAN.score { width: 4em; }
 DIV.hit SPAN.date { width: 9em; }
 DIV.hit SPAN.origin { width: 18em; }
 DIV.hit SPAN.origin_id { width: 10em; }
+
+SPAN.text p { width: 60%;
+  margin-left: 20%;
+  text-align: left; }
