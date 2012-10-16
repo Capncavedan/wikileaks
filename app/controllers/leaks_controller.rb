@@ -1,7 +1,7 @@
 class LeaksController < ApplicationController
 
   def index
-    do_search
+    @hits = search_leaks
   end
 
   def show
@@ -9,12 +9,13 @@ class LeaksController < ApplicationController
 
   private
 
-  def do_search
-    @hits = []
-    return if params[:q].blank?
-    @hits = Leak.search do
+  def search_leaks
+    return [] if params[:q].blank?
+
+    Leak.search do
       fulltext params[:q]
     end.hits
   end
+
 
 end
