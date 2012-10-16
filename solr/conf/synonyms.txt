@@ -18,6 +18,7 @@ ccc => cccc1,cccc2
 a\=>a => b\=>b
 a\,a => b\,b
 fooaaa,baraaa,bazaaa
+malinowski,malinowsky,malinowskiy
 
 # Some synonym groups specific to this example
 GB,gib,gigabyte,gigabytes

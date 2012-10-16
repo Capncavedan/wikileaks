@@ -64,6 +64,8 @@
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.StandardFilterFactory"/>
         <filter class="solr.LowerCaseFilterFactory"/>
+        <!-- *** ADD THE BELOW FOR SYNONYMS TO WORK -->
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true" />
       </analyzer>
     </fieldType>
     <!-- *** This fieldType is used by Sunspot! *** -->
