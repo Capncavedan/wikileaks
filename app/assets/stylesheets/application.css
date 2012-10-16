@@ -26,15 +26,22 @@
   border-radius: 8px;
 }
 
-h1 {
-  font-size: 3em;
-}
+h1 { font-size: 3em; }
 
-h3 {
-  font-size: 2em;
-}
+h3 { font-size: 2em; }
 
 form input {
   font-size: 1.5em;
   width: 20em;
 }
+
+DIV.hit { width: 80%; margin-left: 10%;}
+DIV.hit.even { background-color: #ccc; }
+DIV.hit.odd  { background-color: #eee; }
+DIV.hit.header { background-color: #aaa; }
+
+DIV.hit SPAN { display: inline-block; text-align: left; }
+DIV.hit SPAN.score { width: 4em; }
+DIV.hit SPAN.date { width: 9em; }
+DIV.hit SPAN.origin { width: 18em; }
+DIV.hit SPAN.origin_id { width: 10em; }

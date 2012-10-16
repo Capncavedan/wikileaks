@@ -1,8 +1,25 @@
-%h1 Leaks
+%h1 Leaks!
 
 %h3 Search Them!
 
 %form
   = text_field_tag 'q', params[:q], placeholder: "enter search terms ..."
 
-#results
+%br
+%br
+- if @hits.empty?
+  %div.hit.header
+    %span.no_results No Matches
+- else
+  %div.hit.header
+    %span.score Score
+    %span.date Date
+    %span.origin Origin
+    %span.origin_id Cable ID
+
+  - @hits.each do |hit|
+    %div.hit{id: "result_#{hit.result.id}", class: cycle(:odd, :even)}
+      %span.score= sprintf("%.2f", hit.score)
+      %span.date= hit.result.cable_date.strftime("%d %b %Y")
+      %span.origin= hit.result.origin_description
+      %span.origin_id= hit.result.origin_id
