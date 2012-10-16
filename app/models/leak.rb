@@ -1,5 +1,7 @@
 class Leak < ActiveRecord::Base
 
+  attr_accessible :cable_date, :origin_id, :origin_description, :classification, :destination_id, :header, :body
+
   searchable do
     text :header
     text :body
