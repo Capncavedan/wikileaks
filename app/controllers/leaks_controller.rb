@@ -15,6 +15,10 @@ class LeaksController < ApplicationController
 
     hits = Leak.search do
       fulltext params[:q]
+
+      with :origin_description, params[:origin] if params[:origin].present?
+
+      with :cable_year, params[:year] if params[:year].present?
     end.hits
     hits.reject{ |hit| hit.result.nil? }
   end

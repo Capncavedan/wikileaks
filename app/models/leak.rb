@@ -12,8 +12,13 @@ class Leak < ActiveRecord::Base
     string :origin_description
 
     time :cable_date
+
+    integer :cable_year
   end
 
+  def cable_year
+    cable_date.try(:year)
+  end
 
   def self.sql_search(user_search_string)
     conditions = []
@@ -28,6 +33,11 @@ class Leak < ActiveRecord::Base
   # produces SQL WHERE clause like so:
   # (body LIKE '%Rupert%' AND body LIKE '%Murdoch%' AND \
   #  body LIKE '%Montgomery%' AND body LIKE '%Burns%')
+
+
+  def self.origin_options
+    uniq.pluck(:origin_description).sort
+  end
 
 end
 

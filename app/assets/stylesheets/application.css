@@ -17,6 +17,11 @@
   text-align: center;
 }
 
+form DIV.left {
+  text-align: left;
+  margin-left: 25%;
+}
+
 a, a:hover, a:visited, a:active { color: black; text-decoration: none; }
 
 #content {
