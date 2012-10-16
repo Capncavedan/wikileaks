@@ -1,23 +1,21 @@
 class Cable < ActiveRecord::Base
 
-  attr_accessible :cable_date, :origin_id, :origin_description, :classification, :destination_id, :header, :body
+  has_many :comments
 
   searchable do
-    text :header
-    text :body
-    text :origin_id
-    text :destination_id
-
-    string :classification
-    string :origin_description
-
+    text :header, :body, :origin_id, :destination_id
+    string :classification, :origin_description
     time :cable_date
 
-    integer :cable_year
+    text :all_comment_text
+
+    integer :cable_year do
+      cable_date.try(:year)
+    end
   end
 
-  def cable_year
-    cable_date.try(:year)
+  def all_comment_text
+    comments.map{ |comment| comment.body }
   end
 
   def self.sql_search(user_search_string)
@@ -38,6 +36,8 @@ class Cable < ActiveRecord::Base
   def self.origin_options
     uniq.pluck(:origin_description).sort
   end
+
+  attr_accessible :cable_date, :origin_id, :origin_description, :classification, :destination_id, :header, :body
 
 end
 
