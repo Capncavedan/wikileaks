@@ -11,3 +11,30 @@
  *= require_self
  *= require_tree .
  */
+
+* {
+  font-family: "Meslo LG M DZ";
+  text-align: center;
+}
+
+#content {
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 8%;
+  padding: 5px 5px 20px 5px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+form input {
+  font-size: 1.5em;
+  width: 20em;
+}

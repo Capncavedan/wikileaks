@@ -1,3 +1,8 @@
 %h1 Leaks
 
 %h3 Search Them!
+
+%form
+  = text_field_tag 'q', params[:q], placeholder: "enter search terms ..."
+
+#results
