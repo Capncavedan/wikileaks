@@ -1,20 +1,22 @@
 # Searching With Solr
 
-Resources:
+### Resources:
 
 http://www.solrtutorial.com
 
 http://sunspot.github.com
 
 
-Wikileaks cables:
+### Wikileaks cables:
 
-Use torrent file WikiLeaks_uncensored_US_diplomatic_cables_(cables.csv).6644050.TPB.torrent
+Use included torrent file `WikiLeaks_uncensored_US_diplomatic_cables_(cables.csv).6644050.TPB.torrent`
 
-Note that it is over 1.6 GB, so will take a while to download and also to impot if you choose to import all of it.
+Note that the `cables.csv` file it downloads is over 1.6 GB, so will take a while to download and also to import (if you choose to import all of it)
 
-It can be parsed with the db/import_cables.rb script; adjust the path within it to your cables.csv file, then open a rails console and use `load "db/import_cables.rb"`
+It can be parsed with the `db/import_cables.rb` script; adjust the path within it to your local `cables.csv` file, then open a rails console and use `load "db/import_cables.rb"`
 
+
+### Synonysm
 
 Synonyms are not enabled out of the box!  Edit `solr/conf/schema.xml` as reflected below:
 
