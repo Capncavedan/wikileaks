@@ -2,7 +2,8 @@ require 'rubygems'
 require 'american_date'
 require 'csv'
 
-data = File.read("/Users/danb/Downloads/cables.csv", 100 * 1024 *1024)
+
+data = File.read("/Users/danb/Downloads/cables.csv", 10 * 1024 *1024)
 Cable.delete_all
 i = 1
 
