@@ -2,13 +2,14 @@ require 'rubygems'
 require 'american_date'
 require 'csv'
 
-
-data = File.read("/Users/danb/Downloads/cables.csv", 10 * 1024 *1024)
+# adjust size of data read to fit your needs - 
+# 10 MB is about 1370 cables; 100 MB is about 16,500 cables
+data = File.read("/Users/danb/Downloads/cables.csv", 100 * 1024 *1024)
 Cable.delete_all
 i = 1
 
-while data.sub!(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?)\n("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d.*?")/m, '\2')
-  cable = String.new($1).force_encoding('utf-8')
+data.scan(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?"\n)/m) do |record|
+  cable = String.new(record.first.chomp).force_encoding('utf-8')
   cable.gsub!(/\\"/, '""')   # CSV does not like double quotes escaped like so: \"
   cable.gsub!(/\\'/, "'")    # CSV does not like single quotes escaped like so: \'
 
@@ -16,7 +17,7 @@ while data.sub!(/("\d+","\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d\d",.*?)\n("\d+","\d{
   # "2","2/25/1972 9:30","72TEHRAN1164","Embassy Tehran","UNCLASSIFIED","72MOSCOW1603|72TEHRAN1091|72TEHRAN263","R 250930Z FEB 72...
   CSV.parse(cable) do |row|
     numeric_id, cable_date, origin_id, origin_description, classification, destination_id, header, body = row
-    puts origin_id
+    puts "#{numeric_id} :: #{origin_id}"
     i += 1
 
     Cable.create(
