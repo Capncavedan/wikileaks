@@ -16,7 +16,7 @@ Note that the `cables.csv` file it downloads is over 1.6 GB, so will take a whil
 It can be parsed with the `db/import_cables.rb` script; adjust the path within it to your local `cables.csv` file, then open a rails console and use `load "db/import_cables.rb"`
 
 
-### Synonysm
+### Synonyms
 
 Synonyms are not enabled out of the box!  Edit `solr/conf/schema.xml` as reflected below:
 
