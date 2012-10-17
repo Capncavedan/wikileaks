@@ -4,12 +4,12 @@
 
 %form
   .left
-    -#Year of cable:
-    -#= select_tag 'year', options_for_select( (1966..2012).to_a, params[:year] ), include_blank: true
-    -#%br
-    -#Origin:
-    -#= select_tag 'origin', options_for_select( Cable.origin_options, params[:origin] ), include_blank: true
-    -#%br
+    Year of cable:
+    = select_tag 'year', options_for_select( (1966..2012).to_a, params[:year] ), include_blank: true
+    %br
+    Origin:
+    = select_tag 'origin', options_for_select( Cable.origin_options, params[:origin] ), include_blank: true
+    %br
     = text_field_tag 'q', params[:q], placeholder: "enter search terms ..."
 
 %br

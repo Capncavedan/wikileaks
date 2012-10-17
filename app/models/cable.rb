@@ -3,8 +3,11 @@ class Cable < ActiveRecord::Base
   has_many :comments
 
   searchable do
-    text :header, :body, :origin_id, :destination_id
-    string :classification, :origin_description
+    text :header, boost: 3.0
+    text :body, boost: 2.0
+    text :origin_id, :destination_id
+    string :classification
+    string :origin_description
     time :cable_date
 
     text :all_comment_text
